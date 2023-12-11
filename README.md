@@ -13,6 +13,7 @@ To set up AUTO-IP-MODIFIER, follow these steps:
 1. Open the Dockerfile and update the environment variables with their respective values.
 2. Create the desired subdomain on the IONOS website.
 3. Obtain the necessary IDs either through the IONOS API (API key, zone ID, Record ID).
+4. Build & run the dockerfile
 
 ## Build & Run
 
