@@ -1,39 +1,51 @@
 # AUTO-IP-MODIFIER
-Automatic IP change for subdomain for IONOS. This project aims to change the the IPv4 of a subdomain record of IONOS by the public IPv4 (via https://httpbin.org/ip) of the current device.
+
+Automated IP Modification for IONOS Subdomains
+
+## Overview
+
+AUTO-IP-MODIFIER is a Docker-based solution designed to automatically update the IPv4 address associated with a subdomain record on IONOS. The project utilizes the public IPv4 address of the current device, retrieved via [https://httpbin.org/ip](https://httpbin.org/ip).
 
 ## Configuration
 
-In the dockerfile, please change the environment variables to their corresponding values. You need to create the subdomain first on IONOS website and gather the different id through the API or run the docker run command with environments value.
+To set up AUTO-IP-MODIFIER, follow these steps:
 
+1. Open the Dockerfile and update the environment variables with their respective values.
+2. Create the desired subdomain on the IONOS website.
+3. Obtain the necessary IDs either through the IONOS API (API key, zone ID, Record ID).
 
-## Build & run
+## Build & Run
+
+Build the Docker image:
 
 ```bash
 docker build . -t auto-ip-modifier-ionos
 ```
 
-```bash
-docker run --name auto-ip-modifier-ionos-container -d auto-ip-modifier-ionos 
-```
-
-### Run with env values
+Run the Docker container:
 
 ```bash
-docker run --name auto-ip-modifier-ionos-container -d --env IONOS_KEY=<IONOS_KEY> --env IONOS_ZONE_ID=<IONOS_ZONE_ID> --env IONOS_RECORD_ID=<IONOS_RECORD_ID> auto-ip-modifier-ionos 
+docker run --name auto-ip-modifier-ionos-container -d auto-ip-modifier-ionos
 ```
 
-
-### Print logs
+Alternatively, run with environment values:
 
 ```bash
-docker exec -it auto-ip-modifier-ionos-container cat logs.log  
+docker run --name auto-ip-modifier-ionos-container -d --env IONOS_KEY=<IONOS_KEY> --env IONOS_ZONE_ID=<IONOS_ZONE_ID> --env IONOS_RECORD_ID=<IONOS_RECORD_ID> auto-ip-modifier-ionos
 ```
 
+## Print Logs
+
+View the container logs:
+
+```bash
+docker exec -it auto-ip-modifier-ionos-container cat logs.log
+```
 
 ## License
 
-Please do whatever you want with this project
-
+This project is released under an open license. Feel free to use, modify, and distribute it as needed.
 
 ## Author
-@ Aurélien "Owrel" SIMON - aureliensimon.contact@gmail.com 
+
+Aurélien "Owrel" SIMON - Contact: aureliensimon.contact@gmail.com
